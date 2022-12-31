@@ -16,12 +16,15 @@ export class User extends BaseEntity {
   @Column({ type: 'varchar', length: 30, unique: true })
   username!: string;
 
+  @Column({ type: 'varchar' })
+  name!: string;
+
   @Column({ type: 'varchar', nullable: true })
   bio: string | null;
 
   @Column({ type: 'varchar', nullable: true })
   profile_picture: string | null;
 
-  @Column({ type: 'datetime', default: Date.now() })
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
 }

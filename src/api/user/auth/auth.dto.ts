@@ -1,9 +1,5 @@
 import { Trim } from 'class-sanitizer';
-import { IsEmail } from 'class-validator';
-import {
-  IsString,
-  MinLength,
-} from 'class-validator/types/decorator/decorators';
+import { IsEmail, IsString, MaxLength, MinLength } from 'class-validator';
 
 export class RegisterDto {
   @Trim()
@@ -14,8 +10,12 @@ export class RegisterDto {
   @IsString()
   password: string;
 
+  @MaxLength(30)
   @IsString()
   username: string;
+
+  @IsString()
+  name: string;
 }
 
 export class LoginDto {
