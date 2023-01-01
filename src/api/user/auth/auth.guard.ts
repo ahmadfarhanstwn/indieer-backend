@@ -1,6 +1,5 @@
 import { Injectable, ExecutionContext } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { IAuthGuard } from '@nestjs/passport/dist';
+import { AuthGuard, IAuthGuard } from '@nestjs/passport';
 import { User } from '../user.entity';
 import { Request } from 'express';
 
