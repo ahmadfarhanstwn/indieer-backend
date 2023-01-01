@@ -9,7 +9,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   @Inject(AuthHelper)
   private readonly helper: AuthHelper;
 
-  constructor(@Inject() config: ConfigService) {
+  constructor(@Inject(ConfigService) config: ConfigService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: config.get('JWT_KEY'),
